@@ -62,6 +62,8 @@ Cierra la sesión de usuario con `exit`.
 
 Para forzar la actualización de grupos sin reiniciar ejecuta como rich `newgrp sudo`.
 
+Test: `sudo ls`.
+
 
 
 ## UPDATE, UPGRADE, AUTOREMOVE
