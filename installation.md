@@ -98,13 +98,13 @@ sudo apt autoremove
 - *sudo apt autoremove*: Eliminará paquetes obsoletos que ya no son necesarios
 
 
-## VIM
+## VIM real
 Debian instala una versi'on `tiny`, instala un VIM real
 ```bash
 sudo apt update && sudo apt install vim
 ```
 
-Config mínima de VIM:
+Config mínima de VIM (`vi ~/.vimrc`):
 ```bash
 " Activar el resaltado de sintaxis
 syntax on
