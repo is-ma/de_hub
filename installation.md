@@ -101,7 +101,7 @@ sudo apt autoremove
 ## VIM real
 Debian instala una versi'on `tiny`, instala un VIM real
 ```bash
-sudo apt update && sudo apt install vim
+sudo apt install vim
 ```
 
 Config mínima de VIM (`vi ~/.vimrc`):
