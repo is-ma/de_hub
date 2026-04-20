@@ -50,6 +50,26 @@ ls -l /boot/grub/grub.cfg
 sudo reboot
 ```
 
+SWAP
+4GB de SWAP
+```bash
+su -
+dd if=/dev/zero of=/swapfile bs=1M count=4096 status=progress
+chmod 600 /swapfile
+mkswap /swapfile
+swapon /swapfile
+
+# Que sea permanente, añade al final de tu /etc/fstab:
+/swapfile none swap sw 0 0
+
+# Que solo se use si es emergencia:
+vi /etc/sysctl.conf
+vm.swappiness=10
+
+# Que se entere del cambio:
+sudo sysctl -p
+```
+
 
 ## SUDO
 Debian no instalará sudo ni añadirá a tu usuario al grupo de administradores por defecto.
