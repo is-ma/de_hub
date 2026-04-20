@@ -50,7 +50,7 @@ ls -l /boot/grub/grub.cfg
 sudo reboot
 ```
 
-SWAP
+## SWAP
 4GB de SWAP
 ```bash
 su -
