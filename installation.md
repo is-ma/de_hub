@@ -101,8 +101,27 @@ sudo apt autoremove
 ## VIM
 Debian instala una versi'on `tiny`, instala un VIM real
 ```bash
-sudo apt update && sudo apt install vim -y
+sudo apt update && sudo apt install vim
 ```
+
+Config mínima de VIM:
+```bash
+" Activar el resaltado de sintaxis
+syntax on
+
+" Detectar el tipo de archivo
+filetype plugin indent on
+
+" Intentar cargar el esquema desert (que ya vendrá con la versión completa)
+colorscheme desert
+
+" Si prefieres un fondo oscuro para que no te queme la vista
+set background=dark
+
+" Resaltar la línea actual
+set cursorline
+```
+
 
 ## CONTRIB
 Habilita los repositorios *contrib*. Agrega `contrib` a cada línea deb (no es necesario en las líneas deb-src, a menos que quieras los fuentes).
