@@ -139,6 +139,12 @@ sudo vi /etc/apt/sources.list
 Guarda los cambios, luego `sudo apt update`.
 
 
+## i3
+sudo apt install -y i3
+sudo apt install -y xinit
+startx /usr/bin/i3
+
+
 ## APT
 ### Git
 sudo apt install git
