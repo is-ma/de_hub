@@ -50,9 +50,11 @@ sudo reboot
 ## SUDO
 Debian no instalará sudo ni añadirá a tu usuario al grupo de administradores por defecto.
 
-La solución: Tienes que entrar como root (su -), instalar sudo (apt install sudo) y añadir a "Rich" al grupo: usermod -aG sudo rich.
+La solución: Tienes que entrar como root (su -), instalar sudo (apt install sudo) y añadir a "Rich" al grupo: `usermod -aG sudo rich`.
 
-Cierra la sesión de usuario con `exit` y abre nueva sesión para que se apliquen los cambios.
+Instala: `apt install sudo`.
+
+Cierra la sesión de usuario con `exit`.
 
 Para forzar la actualización de grupos sin reiniciar ejecuta como rich `newgrp sudo`.
 
