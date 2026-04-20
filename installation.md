@@ -85,20 +85,6 @@ Para forzar la actualización de grupos sin reiniciar ejecuta como rich `newgrp 
 Test: `sudo ls`.
 
 
-
-## UPDATE, UPGRADE, AUTOREMOVE
-El primer comando que debes ejecutar para actualizar todo tu sistema es:
-```bash
-sudo apt update && sudo apt full-upgrade -y
-sudo apt autoremove
-```
-
-- *sudo apt update*: Actualiza la lista de paquetes disponibles desde los repositorios
-- *sudo apt full-upgrade -y*: Instala las actualizaciones disponibles, incluyendo las que requieren cambios en las dependencias (como eliminar o instalar paquetes adicionales)
-- *sudo apt autoremove*: Eliminará paquetes obsoletos que ya no son necesarios
-
-
-
 ## i3
 ```bash
 sudo apt install -y i3
