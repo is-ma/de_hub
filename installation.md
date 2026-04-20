@@ -98,6 +98,15 @@ sudo apt autoremove
 - *sudo apt autoremove*: Eliminará paquetes obsoletos que ya no son necesarios
 
 
+
+## i3
+```bash
+sudo apt install -y i3
+sudo apt install -y xinit
+startx /usr/bin/i3
+```
+
+
 ## VIM real
 Debian instala una versi'on `tiny`, instala un VIM real
 ```bash
@@ -137,14 +146,6 @@ sudo vi /etc/apt/sources.list
 ```
 
 Guarda los cambios, luego `sudo apt update`.
-
-
-## i3
-```bash
-sudo apt install -y i3
-sudo apt install -y xinit
-startx /usr/bin/i3
-```
 
 
 ## APT
