@@ -140,9 +140,11 @@ Guarda los cambios, luego `sudo apt update`.
 
 
 ## i3
+```bash
 sudo apt install -y i3
 sudo apt install -y xinit
 startx /usr/bin/i3
+```
 
 
 ## APT
