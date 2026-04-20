@@ -1,0 +1,98 @@
+# DEBIAN 13
+
+- instalación en disco completo
+- root: ElNido*
+- rich: MD5 AU[-4]
+- time zone: Central
+- Xfce (sólido, rápido y no te estorba)
+
+
+## GRUB
+- en la ASUS X1404ZA fallará al final de la instalación
+- Debian 13 se instala completamente aún así
+- al final te sacará directo al GRUB (terminal)
+
+Te dirá algo así como que voy a requerir después hacer boot manual con vmlinuz kernel en partición /dev/nvme0n1p2 y root=/dev/nvme0n1p2 quiet passed as kernel argument y justo así DeepSeek me dio los siguientes comandos que arreglaron completamente el problema:
+
+```bash
+# Para encontrar tu partición Debian
+ls
+
+# Busca la que tenga ext4 (ej. (hd0,gpt2))
+set root=(hd0,gpt2)
+
+# Carga el kernel (presiona TAB para autocompletar)
+linux /boot/vmlinuz-... root=/dev/nvme0n1p2
+
+# Carga el initrd
+initrd /boot/initrd.img-...
+
+# Arranca
+boot
+```
+
+Ahora vamos a hacer que estos cambios sean permanentes:
+```bash
+# Genera el archivo /boot/grub/grub.cfg
+sudo update-grub
+
+# Reinstala GRUB en el disco (para que apunte bien)
+sudo grub-install --target=x86_64-efi --efi-directory=/boot/efi --removable
+
+# Verifica que el archivo se creó
+ls -l /boot/grub/grub.cfg
+
+# Reinicia y prueba
+sudo reboot
+```
+
+
+## SUDO
+Debian no instalará sudo ni añadirá a tu usuario al grupo de administradores por defecto.
+
+La solución: Tienes que entrar como root (su -), instalar sudo (apt install sudo) y añadir a "Rich" al grupo: usermod -aG sudo rich.
+
+Cierra la sesión de usuario con `exit` y abre nueva sesión para que se apliquen los cambios.
+
+Para forzar la actualización de grupos sin reiniciar ejecuta como rich `newgrp sudo`.
+
+
+
+## UPDATE, UPGRADE, AUTOREMOVE
+El primer comando que debes ejecutar para actualizar todo tu sistema es:
+```bash
+sudo apt update && sudo apt full-upgrade -y
+sudo apt autoremove
+```
+
+- *sudo apt update*: Actualiza la lista de paquetes disponibles desde los repositorios
+- *sudo apt full-upgrade -y*: Instala las actualizaciones disponibles, incluyendo las que requieren cambios en las dependencias (como eliminar o instalar paquetes adicionales)
+- *sudo apt autoremove*: Eliminará paquetes obsoletos que ya no son necesarios
+
+
+
+## CONTRIB
+Habilita los repositorios *contrib*. Agrega `contrib` a cada línea deb (no es necesario en las líneas deb-src, a menos que quieras los fuentes).
+
+*contrib*: Contiene paquetes que cumplen con las directrices de Debian pero dependen de software que no es completamente libre.
+
+```bash
+sudo vi /etc/apt/sources.list
+
+# ej. para las 3 líneas deb:
+# deb http://deb.debian.org/debian/ trixie main contrib non-free-firmware
+
+```
+
+Guarda los cambios, luego `sudo apt update`.
+
+
+## APT
+### Git
+sudo apt install git
+git config --global user.email "is-ma@users.noreply.github.com"
+git config --global user.name "Is Ma"
+
+### i3 Window Manager
+sudo apt install i3
+
