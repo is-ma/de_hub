@@ -4,7 +4,11 @@
 - root: ElNido*
 - rich: MD5 AU[-4]
 - time zone: Central
-- Xfce (sólido, rápido y no te estorba)
+- Sin swap por el momento:
+  * 1 GB B F ESP
+  * 511.1 F ext4 /
+- SSH server
+- standard system utilities 
 
 
 ## GRUB
