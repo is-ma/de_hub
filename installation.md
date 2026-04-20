@@ -95,10 +95,13 @@ git config --global user.name "Is Ma"
 
 
 ## Alacritty
+### Dependencias
+sudo apt install libfontconfig1-dev
 ### Instala Rust primero
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 . "$HOME/.cargo/env"
 cargo install alacritty
+
 
 ### i3 Window Manager
 sudo apt install i3
