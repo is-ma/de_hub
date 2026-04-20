@@ -70,6 +70,11 @@ sudo apt autoremove
 - *sudo apt autoremove*: Eliminará paquetes obsoletos que ya no son necesarios
 
 
+## VIM
+Debian instala una versi'on `tiny`, instala un VIM real
+```bash
+sudo apt update && sudo apt install vim -y
+```
 
 ## CONTRIB
 Habilita los repositorios *contrib*. Agrega `contrib` a cada línea deb (no es necesario en las líneas deb-src, a menos que quieras los fuentes).
